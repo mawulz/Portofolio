@@ -3,28 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio!</title>
+    <title>Risya's Portfolio!</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="Asset/M-logo-2.svg" sizes="2x2">
 </head>
 <body>
-    <header>
+    <div class="cursor"></div>
+    <nav class="navbar">
         <div class="logo">
-            <!-- Insert your logo image here -->
-            <img src="Asset/M_Logo.svg" alt="Logo">
+            <img src="Asset/M-logo-2.svg" alt="">
         </div>
-        <ul class="nav-links">
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </header>
-    <section class="landing">
-        <!-- <div>
-            <h1>Hello welcome to my portofolio!</h1>
-        </div> -->
-        <div class="personPhoto">
-            <img src="Asset/Poto1.png" alt="">
+        <!-- <div class="nav-r-side"> -->
+            <label for="sb-active" class="o-bar">
+                <img src="Asset/menu-bar.svg" alt="">
+            </label>
+            <input type="checkbox" id="sb-active">
+            <div class="nav-links">
+                <div class="links">
+                    <a href="#">Home</a>
+                    <a href="#">Project</a>
+                    <a href="#">Contact</a>
+                </div>
+                <label for="sb-active" class="c-bar">
+                    <img src="Asset/menu-cross.svg" alt="">
+                </label>
+            </div>
+        <!-- </div> -->
+    </nav>
+    <div class="mark">
+        <p>MAWUL'S PROJECT</p>
+    </div>
+    <div class="landing">
+        <div class="l-text">
+            <h3>Hi, i'm Risya.</h3>
+            <p>welcome to my portfolio website</p>
         </div>
-    </section>
+    </div>
+    <div class="about">
+        <div class="about-txt">
+            <h4>About me.</h4>
+            <p class="desc1">My name is Muhammad Risya Maulana, I'm a Computer Science student at BINUS University, focusing in Software Engineering. With a strong passion for front-end development, web programming, and UI/UX design, I aim to create engaging and user-friendly digital experiences. </p>
+            <div class="dc-2">
+                <!-- <p class="desc2">i also do <p class="dc2">Graphic Design!</p></p> -->
+                
+            </div>
+            <div class="skills">
+                <p class="s-t-1">Skills</p>
+                <!-- <div class="s-t-mark"> -->
+                    <!-- <div class="line"></div> -->
+                    <p class="s-t-2">CODE </p>
+                    <ul class="s-items">
+                        <li class="s1">HTML</li>
+                        <li class="s2">CSS</li>
+                        <li class="s3">Javascript</li>
+                        <li class="s4">Java</li>
+                        <li class="s5">Python</li>
+                        <li class="s6">SQL</li>
+                        <li class="s7">C</li>
+                        <li class="s8">Laravel</li>
+                        <li class="s9">Bootstrap</li>
+                        <li class="s10">PHP</li>
+                    </ul>
+                <!-- </div> -->
+                <!-- <div class="s-t-mark-2"> -->
+                    <p class="s-t-2">DESIGN</p>
+                    <ul class="s-items">
+                        <li class="s1">Adobe Illustrator</li>
+                        <li class="s2">Adobe Photoshop</li>
+                        <li class="s3">Figma</li>
+                        <li class="s4">Canva</li>
+                    </ul>
+                <!-- </div> -->
+            </div>
+            <div class="b-r-object">
+                <div class="b-cv">
+                    <button onclick="downloadCV_PDF()" type="button" class="d-cv">DOWNLOAD CV ↓</button>
+                </div>
+                <!-- <div class="rotating-element">
+                    <img src="Asset/M-logo-wire.svg" alt="">
+                </div> -->
+            </div>
+        </div>
+        <!-- <div class> -->
+            <img src="Asset/pic-risya-edited.png" alt="">
+        <!-- </div> -->
+    </div>
+    <div></div>
+    <script src="interactive.js"></script>
 </body>
 </html>
