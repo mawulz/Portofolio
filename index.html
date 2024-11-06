@@ -8,14 +8,18 @@
     <link rel="icon" type="image/png" href="Asset/M-logo-2.svg" sizes="2x2">
 </head>
 <body>
+    <div class="splash-scr">
+        <svg id="svg-m" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.05 44.52">
+            <path d="M22.17,15.38.38.71V44.15H43.67V.71ZM4.3,40.42V20.62L22.16,32.8l7.19-4.9,10.43-7.12V40.42ZM39.79,15.54l-17.62,12L4.3,15.54V8.61l17.86,12,17.63-12Z"/>
+        </svg>   
+    </div>
     <div class="cursor"></div>
     <nav class="navbar">
         <div class="logo">
-            <img src="Asset/M-logo-2.svg" alt="">
+            <img src="Asset/SVG/M-logo-2.svg" alt="">
         </div>
-        <!-- <div class="nav-r-side"> -->
             <label for="sb-active" class="o-bar">
-                <img src="Asset/menu-bar.svg" alt="">
+                <img src="Asset/SVG/menu-bar.svg" alt="">
             </label>
             <input type="checkbox" id="sb-active">
             <div class="nav-links">
@@ -25,32 +29,34 @@
                     <a href="#">Contact</a>
                 </div>
                 <label for="sb-active" class="c-bar">
-                    <img src="Asset/menu-cross.svg" alt="">
+                    <img src="Asset/SVG/menu-cross.svg" alt="">
                 </label>
             </div>
-        <!-- </div> -->
     </nav>
     <div class="mark">
         <p>MAWUL'S PROJECT</p>
     </div>
     <div class="landing">
         <div class="l-text">
-            <h3>Hi, i'm Risya.</h3>
+            <img src="Asset/SVG/M-logo-dark.svg" alt="">
+            <h4>Hi, i'm Risya.</h4>
             <p>welcome to my portfolio website</p>
         </div>
-    </div>
-    <div class="about">
-        <div class="about-txt">
-            <h4>About me.</h4>
-            <p class="desc1">My name is Muhammad Risya Maulana, I'm a Computer Science student at BINUS University, focusing in Software Engineering. With a strong passion for front-end development, web programming, and UI/UX design, I aim to create engaging and user-friendly digital experiences. </p>
-            <div class="dc-2">
-                <!-- <p class="desc2">i also do <p class="dc2">Graphic Design!</p></p> -->
-                
+        <div class="scroll-btn">
+            <a onclick="scrollAbout()">scroll</a>
+            <div class="load-contain">
+                <div class="loading-bg"></div>
+                <div class="loading-bar"></div>
             </div>
+        </div>
+    </div>
+    <div class="about reveal" id="about-section">
+        <div class="about-txt" id="scrollPosition">
+            <p class="a-t-1" onclick="coba()">INTRO</p>
+            <h2>About me.</h2>
+            <p class="desc1">My name is Muhammad Risya Maulana, I'm a computer science student at BINUS University, focusing in software engineering. With a strong passion for front-end development, web programming, and UI/UX design, I aim to create engaging and user-friendly digital experiences. </p>
             <div class="skills">
                 <p class="s-t-1">Skills</p>
-                <!-- <div class="s-t-mark"> -->
-                    <!-- <div class="line"></div> -->
                     <p class="s-t-2">CODE </p>
                     <ul class="s-items">
                         <li class="s1">HTML</li>
@@ -64,8 +70,6 @@
                         <li class="s9">Bootstrap</li>
                         <li class="s10">PHP</li>
                     </ul>
-                <!-- </div> -->
-                <!-- <div class="s-t-mark-2"> -->
                     <p class="s-t-2">DESIGN</p>
                     <ul class="s-items">
                         <li class="s1">Adobe Illustrator</li>
@@ -73,22 +77,43 @@
                         <li class="s3">Figma</li>
                         <li class="s4">Canva</li>
                     </ul>
-                <!-- </div> -->
             </div>
             <div class="b-r-object">
                 <div class="b-cv">
                     <button onclick="downloadCV_PDF()" type="button" class="d-cv">DOWNLOAD CV ↓</button>
                 </div>
-                <!-- <div class="rotating-element">
-                    <img src="Asset/M-logo-wire.svg" alt="">
-                </div> -->
             </div>
         </div>
-        <!-- <div class> -->
-            <img src="Asset/pic-risya-edited.png" alt="">
-        <!-- </div> -->
+        <img  src="Asset/pic-risya-edited.png" alt="">
     </div>
-    <div></div>
+    <div class="projects-highlight">
+        <div class="projects-highlight-d1 reveal">
+            <div class="title-p">
+                <p class="a-t-1">WORK</p>
+                <h2>Featured Project.</h2>
+            </div>
+            <div class="divider"></div>
+            <a href="#" class="more-p">+ SEE MORE PROJECT</a>   
+        </div>
+        <a href="" class="reveal">
+            <div class="show-card">
+                <p class="t1-show">Jockey's Conference Center</p>
+                <div class="p1-pic">
+                </div>
+            </div>
+        </a>
+    </div>
+    <footer>
+        <div class="contact">
+            <a href="mailto:risyamaulana123@gmail.com"><img class="c1" src="Asset/SVG/mail-icon.svg" alt=""></a>
+            <a href="https://linkedin.com/in/mrisyamaulana"><img class="c2" src="Asset/SVG/linkedIn-icon.svg" alt=""></a>
+            <a href="https://github.com/mawulz"><img class="c3" src="Asset/SVG/github-mark-white.svg" alt=""></a>
+        </div>
+        <p>Created by Risya 2024.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+    integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="interactive.js"></script>
 </body>
 </html>

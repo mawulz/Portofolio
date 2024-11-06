@@ -1,22 +1,63 @@
+gsap.fromTo(
+  ".splash-scr",
+  { opacity: 1 },
+  {
+    opacity: 0,
+    display: "none",
+    duration: 1,
+    delay: 1.5,
+  }
+);
+
+gsap.fromTo(
+  ".landing",
+  {
+    y: 0,
+    opacity: 0,
+  },
+  {
+    y: 0,
+    opacity: 1,
+    duration: 1,
+    delay: 2,
+  }
+);
 function downloadCV_PDF() {
     const link = document.createElement('a');
     link.href = 'Asset/Portfolio/CV-Muhammad Risya Maulana-2024.pdf';
     link.download = 'CV-Muhammad Risya Maulana-2024.pdf'; // Optional: set a custom filename
     link.click();
 }
-document.addEventListener('DOMContentLoaded', () => {
 
-    
+// UNDER DEVELOP -> START
+/*function scrollAbout(){
+  const tgt = document.querySelector('.about, .reveal, .active');
+  const valueScroll = document.getElementById('about-section');
+  const pos = tgt.getBoundingClientRect();
+  if (tgt) {
+    setTimeout(() =>{
+      tgt.style.transition = "10s ease-in-out";
+      window.scrollTo({ 
+          top: pos.top - 150, // Adjust the offset as needed
+          behavior: 'smooth'
+      });
+    }, 100)
+  }
+} */
+// END
+
+document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.querySelector('.cursor');
-    const hoverTargets = document.querySelectorAll('.logo, .o-bar, .c-bar, .d-cv');
+    const hoverTargetsGeneral = document.querySelectorAll('.logo, .o-bar, .c-bar, .d-cv, .links, .more-p, .c1, .c2, .c3');
+    const hoverTargetProject = document.querySelectorAll('.show-card');
   
     // Check if the cursor element exists
     if (cursor) {
       let mouseX = 0, mouseY = 0; // Current mouse position
       let posX = 0, posY = 0; // Cursor position
 
-      const offsetX = -1; // Horizontal offset
-      const offsetY = 20; // Vertical offset
+      const offsetX = -5; // Horizontal offset
+      const offsetY = 25; // Vertical offset
   
       document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX; // Update current mouse position
@@ -36,9 +77,13 @@ document.addEventListener('DOMContentLoaded', () => {
   
       updateCursor(); // Start the animation loop
 
-      hoverTargets.forEach(target => {
+      hoverTargetsGeneral.forEach(target => {
         target.addEventListener('mouseenter', () => cursor.classList.add('grow'));
         target.addEventListener('mouseleave', () => cursor.classList.remove('grow'));
+      });
+      hoverTargetProject.forEach(target => {
+        target.addEventListener('mouseenter', () => cursor.classList.add('grow-p'));
+        target.addEventListener('mouseleave', () => cursor.classList.remove('grow-p'));
       });
     }
 
@@ -66,19 +111,69 @@ document.addEventListener('DOMContentLoaded', () => {
     // Reveal text every 1 second (adjust as needed)
     setInterval(revealText, 1000); // Change text every 1 second
 
-    const navbar = document.querySelector('.navbar');
-    let timeout;
+    let lastScrollTop = 0;
+    let mouseIdleTimeout;
+    let scrollTimeOut;
+        const navbar = document.querySelector('.navbar');
 
-    navbar.addEventListener('mouseover', () => {
-        clearTimeout(timeout); // Clear any existing timeout
-        navbar.classList.remove('hidden'); // Show navbar
-    });
+        function showNavbar() {
+          navbar.classList.remove('hidden');
+        }
 
-    navbar.addEventListener('mouseleave', () => {
-        timeout = setTimeout(() => {
-            navbar.classList.add('hidden'); // Hide navbar after 1 second
-        }, 2000); // 1000 milliseconds = 1 second
-    });
+      // Function to hide navbar
+        function hideNavbar() {
+            navbar.classList.add('hidden');
+        }
+
+        window.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeOut);
+            showNavbar();
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop) {
+                // Scrolling down
+                hideNavbar();
+            } else {
+                // Scrolling up
+                showNavbar();
+            }
+            lastScrollTop = scrollTop;
+        });
+
+        window.addEventListener('mousemove', () => {
+          // Clear mouse idle timeout on movement
+          clearTimeout(mouseIdleTimeout);
+          // showNavbar();
+
+          // Set timeout to hide navbar after 2 seconds of no cursor movement
+          mouseIdleTimeout = setTimeout(() => {
+              hideNavbar();
+          }, 2000); // 2000ms = 2 seconds
+      });
 
 });
+window.addEventListener('scroll', reveal);
+
+function reveal(){
+  // console.log('scroll triggered');
+  var rev = document.querySelectorAll('.reveal');
+  // console.log(document.querySelectorAll('.reveal'));
+
+  for (var i = 0; i < rev.length; i++) {
+    var wHeight = window.innerHeight;
+    // console.log(window.innerHeight);
+    var revTop = rev[i].getBoundingClientRect().top;
+    // console.log(revTop);
+    var revPoint = 100;
+
+    if (revTop < wHeight - revPoint){
+      rev[i].classList.add('active');
+    } else {
+      rev[i].classList.remove('active');
+    }
+  }
+}
+
+
+
   
