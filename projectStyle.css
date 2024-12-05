@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Proxima+Nova:wght@100..1000&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    /* colors */
+    --main-color: #001524;
+    --second-color: #FFDDA6;
+    --text-color: #fff;
+    --bg-color: #17413F;
+    /* fonts */
+    --main-font: 'DM Sans',sans-serif;
+    --second-font: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    font-family: var(--main-font);
+    background-color: #001524;
+    width: 100%;
+}
+
+.splash-scr {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(to top left,#012036, #001524);
+
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+    color: #191654;
+    z-index: 10000;
+}
+/* 
+#svg-m {
+    height: 187px;
+    width: 182px;
+    stroke: var(--second-color);
+    fill-opacity: 0;
+    stroke-width: 0.6px;
+    stroke-dasharray: 5000;
+    animation: draw 6s ease-in;
+  }
+
+  @keyframes draw {
+    0% {
+      stroke-dashoffset: 5000;
+    }
+    100% {
+      stroke-dashoffset: 0;
+    }
+  } */
+
+.cursor {
+    position: fixed;
+    width: 15px;
+    height: 15px;
+    background-color: #3ce7a3; /* Change color */
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s ease; /* Smooth transition */
+    z-index: 1002;
+}
+
+.cursor.grow {
+    transform: scale(2); /* Increase size */
+    background-color: #db5534;
+}
+
+.cursor.grow-p {
+    transform: scale(2);
+    background-color: #db5534;
+}
+
+.cursor.grow-p::after{
+    padding-left: 10px;
+    content: 'view';
+    font-size: 10px;
+    text-shadow: #db5534 1px 0 10px;
+    color: white;
+    transform: transform 1s ease-in-out;
+}
+
+
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    /* right: 0; */
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    /* padding: 14px 80px; */
+    height: auto;
+    /* transition: opacity .5s ease; */
+    transition: transform .5s ease;
+    transition-delay: .3s;
+}
+
+.navbar.hidden {
+    /* transform: translateY(-100%); */
+    transition-delay: .2s;
+    transform: translateY(-100%);
+}
+
+.mark {
+    display: flex;
+    position: fixed;
+    justify-content: flex-end;
+    transform: rotate(270deg);
+    top: 80%;
+    right: 4.5%;
+    color: var(--second-color);
+}
+
+.logo {
+    margin: 11vh 16vh;
+}
+
+.logo img {
+    height: 90px;
+    /* margin-right: 40px; Adjust as needed */
+}
+
+.c-bar {
+    /* align-self: ; */
+    margin: 16vh 16vh 2vh;
+}
+
+.o-bar {
+    align-self: end;
+    margin: 16vh;
+    /* display: none; */
+}
+
+.nav-links {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    right: -100%;
+    width: 90vh;
+    height: 100vh;
+    background-color: var(--second-color);
+    /* backdrop-filter: blur(5px); */
+    transition: .6s cubic-bezier(0.25, 0.1, 0.25, 1);
+}
+
+.links {  
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 15vh;
+    margin-left: 11vh;
+}
+
+.links a {
+    text-decoration: none;
+    position: relative;
+    color: var(--main-color); /* Light beige/gold color */
+    font-size: 60px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    padding: 0;
+    width: auto;
+}
+
+.links a:after {
+    /* color: #d3b68a; */
+    display: block;
+    content: "";
+    position: absolute;
+    height: 3px;
+    width: 0;
+    bottom: -5px;
+    background-color: var(--main-color);
+    transition-duration: .3s;
+    transition-behavior: normal;
+    transition-timing-function: ease-in-out;
+    border-radius: 15px 15px 15px 15px;
+}
+
+.links a:hover:after {
+    width: 40%;
+    height: 7px;
+}
+
+label img {
+    height: 9vh;
+}
+
+#sb-active {
+    display: none;
+}
+
+#sb-active:checked ~ .nav-links {
+    right: 0;
+}
+
+.works {
+    display: block;
+    place-items: center;
+    height: 100vh;
+    margin: 12vh;
+}
+
+.w-title {
+    display: contents;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.w-title-1 {
+    font-family: 'Proxima Nova', sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+    font-size: 13px;
+    animation: fadeInOut .5s ease forwards;
+}
+
+.w-title-2 {
+    /* font-family: "Plus Jakarta Sans", sans-serif; */
+    /* font-family: "Space Mono", monospace; */
+    font-size: 80px;
+    color: var(--text-color);
+    animation: fadeInOut .5s ease forwards;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-work {
+    display: flex;
+    animation: fadeInUp 1.2s ease forwards;
+
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-work-1 {
+    min-height: 20vh;
+    max-height: 70vh;
+    width: 40vh;
+    display: grid;
+    overflow: hidden;
+    margin: 8vh;
+}
+
+.card-img {
+    /* width: 60vh; */
+    height: 45vh;
+    /* opacity: 50%; */
+}
+
+.card-body {
+    /* position: absolute; */
+    color: white;
+    padding-top: 10px;
+    min-height: 50vh;
+    width: 40vh;
+    display: block;
+    /* align-self: flex-end; */
+    /* overflow: auto; */
+}
+
+.card-text {
+    word-wrap: break-word;
+    font-size: 30px;
+    line-height: 30px;
+    /* justify-self: flex-end; */
+    /* white-space: normal; */
+}
+.card-text-2 {
+    /* justify-self: flex-end; */
+    font-family: 'Proxima Nova', sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+    letter-spacing: 1px;
+    font-size: 13px;
+    padding-top: 5px;
+}
