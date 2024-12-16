@@ -49,7 +49,7 @@ function downloadCV_PDF() {
 document.addEventListener('DOMContentLoaded', () => {
     const cursor = document.querySelector('.cursor');
     const hoverTargetsGeneral = document.querySelectorAll('.logo, .o-bar, .c-bar, .d-cv, .links, .more-p, .c1, .c2, .c3');
-    const hoverTargetProject = document.querySelectorAll('.show-card');
+    const hoverTargetProject = document.querySelectorAll('.show-card, .card-work-1, .card-work-3');
   
     // Check if the cursor element exists
     if (cursor) {
